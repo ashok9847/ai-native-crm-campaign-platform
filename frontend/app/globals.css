@@ -1,0 +1,317 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+
+  /* Colors mapped to CSS Variables */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
+  --color-amber: var(--amber);
+  --color-amber-light: var(--amber-light);
+  --color-green: var(--green);
+  --color-green-light: var(--green-light);
+  --color-red: var(--red);
+  --color-red-light: var(--red-light);
+
+  /* Text mapped to CSS Variables */
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+
+  /* Borders */
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  
+  /* Radius */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-pill: var(--radius-pill);
+}
+
+:root {
+  /* Colors */
+  --bg: #FFFFFF;
+  --surface: #F5F5F5;
+  --surface-hover: #EFEFEF;
+  --accent: #09090B;
+  --accent-light: #F4F4F5;
+  --accent-dark: #000000;
+  --amber: #F59E0B;
+  --amber-light: #FFF8E6;
+  --green: #10B981;
+  --green-light: #E8FFF4;
+  --red: #EF4444;
+  --red-light: #FFF0F0;
+
+  /* High-contrast accessible text roles (WCAG compliant) */
+  --text: #0A0A0A;
+  --text-muted: #5E5E5E; /* Darkened for 5.5:1 ratio */
+  --text-faint: #888888; /* Darkened for better readability */
+
+  /* Borders */
+  --border: #F2F2F2;
+  --border-strong: #E5E5E5;
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 50px;
+
+  /* Typography */
+  --font-black: 800;
+  --font-bold: 700;
+  --font-medium: 500;
+  --font-regular: 400;
+
+  /* Backward Compatibility with shadcn standard variables */
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --popover: var(--bg);
+  --popover-foreground: var(--text);
+  --primary: var(--accent);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--surface);
+  --secondary-foreground: var(--text);
+  --muted: var(--surface);
+  --muted-foreground: var(--text-muted);
+  --ring: var(--accent-light);
+  --input: var(--border);
+}
+
+/* Ensure dark mode class has the same light theme variable values to force unified light system */
+.dark {
+  --bg: #FFFFFF;
+  --surface: #F5F5F5;
+  --surface-hover: #EFEFEF;
+  --accent: #09090B;
+  --accent-light: #F4F4F5;
+  --accent-dark: #000000;
+  --amber: #F59E0B;
+  --amber-light: #FFF8E6;
+  --green: #10B981;
+  --green-light: #E8FFF4;
+  --red: #EF4444;
+  --red-light: #FFF0F0;
+
+  --text: #0A0A0A;
+  --text-muted: #5E5E5E;
+  --text-faint: #888888;
+
+  --border: #F2F2F2;
+  --border-strong: #E5E5E5;
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 50px;
+
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --popover: var(--bg);
+  --popover-foreground: var(--text);
+  --primary: var(--accent);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--surface);
+  --secondary-foreground: var(--text);
+  --muted: var(--surface);
+  --muted-foreground: var(--text-muted);
+  --ring: var(--accent-light);
+  --input: var(--border);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-none;
+  }
+  body {
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+    font-family: var(--font-inter, ui-sans-serif, system-ui, sans-serif);
+    font-weight: 500;
+  }
+  html {
+    background-color: var(--bg) !important;
+  }
+}
+
+/* ── Custom utilities ─────────────────────────────────────────────────────── */
+@layer utilities {
+  .font-sans {
+    font-family: var(--font-inter, ui-sans-serif, system-ui, sans-serif);
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.2s ease-out both;
+  }
+
+  .animate-slideInUp {
+    animation: slideInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-scaleUp {
+    animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+  }
+
+  .animate-slideInRight {
+    animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleUp {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.75;
+      transform: scale(0.98);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Unified Button base classes - 44px height for excellent touch targets */
+  .btn-primary {
+    @apply bg-accent text-white px-5 rounded-pill font-bold text-xs hover:bg-accent-dark hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer shadow-none border-none inline-flex items-center justify-center gap-2 h-11 select-none focus-visible:ring-2 focus-visible:ring-accent-light;
+  }
+  
+  .btn-ghost {
+    @apply bg-surface text-text-muted px-5 rounded-pill font-bold text-xs hover:bg-surface-hover hover:text-text transition-all duration-200 cursor-pointer shadow-none border-none inline-flex items-center justify-center gap-2 h-11 select-none focus-visible:ring-2 focus-visible:ring-accent-light;
+  }
+
+  .btn-amber {
+    @apply bg-amber text-white px-5 rounded-pill font-bold text-xs hover:bg-amber/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer shadow-none border-none inline-flex items-center justify-center gap-2 h-11 select-none focus-visible:ring-2 focus-visible:ring-accent-light;
+  }
+
+  .btn-danger {
+    @apply bg-red-light text-red px-5 rounded-pill font-bold text-xs hover:bg-red/10 active:scale-[0.98] transition-all duration-200 cursor-pointer shadow-none border-none inline-flex items-center justify-center gap-2 h-11 select-none focus-visible:ring-2 focus-visible:ring-accent-light;
+  }
+
+  /* Unified Status Badge classes - high contrast colors and comfortable tap areas */
+  .badge-success {
+    @apply bg-green-light text-[#166534] px-4 py-2 rounded-pill text-xs font-extrabold border-none uppercase tracking-wider inline-flex items-center gap-1.5 shrink-0 select-none;
+  }
+  
+  .badge-pending {
+    @apply bg-surface text-text-muted px-4 py-2 rounded-pill text-xs font-extrabold border-none uppercase tracking-wider inline-flex items-center gap-1.5 shrink-0 select-none;
+  }
+
+  .badge-running {
+    @apply bg-[#EEF2FF] text-[#1558C0] px-4 py-2 rounded-pill text-xs font-extrabold border-none uppercase tracking-wider inline-flex items-center gap-1.5 shrink-0 select-none;
+  }
+
+  .badge-blue {
+    @apply bg-[#EEF2FF] text-[#1558C0] px-4 py-2 rounded-pill text-xs font-extrabold border-none uppercase tracking-wider inline-flex items-center gap-1.5 shrink-0 select-none;
+  }
+
+  .badge-failed {
+    @apply bg-red-light text-[#991B1B] px-4 py-2 rounded-pill text-xs font-extrabold border-none uppercase tracking-wider inline-flex items-center gap-1.5 shrink-0 select-none;
+  }
+
+  .badge-amber {
+    @apply bg-amber-light text-[#92400E] px-4 py-2 rounded-pill text-xs font-extrabold border-none uppercase tracking-wider inline-flex items-center gap-1.5 shrink-0 select-none;
+  }
+
+  /* Global Inputs - 44px height for touch targets */
+  .global-input {
+    @apply bg-surface text-text px-5 rounded-pill text-xs border-none placeholder-text-faint outline-none focus:ring-2 focus:ring-accent-light transition-all w-full h-11;
+  }
+  
+  .global-textarea {
+    @apply bg-surface text-text px-5 py-3 rounded-[18px] text-xs border-none placeholder-text-faint outline-none focus:ring-2 focus:ring-accent-light transition-all w-full min-h-[100px] resize-none;
+  }
+
+  /* Global Table styles */
+  .global-table {
+    @apply w-full border-collapse text-left;
+  }
+  
+  .global-table-thead {
+    @apply sticky top-0 z-10 bg-surface;
+  }
+  
+  .global-table-th {
+    @apply px-5 py-4 bg-surface text-text-muted font-bold text-xs uppercase tracking-wider border-none;
+  }
+  
+  .global-table-tr {
+    @apply bg-white border-b border-border hover:bg-surface-hover transition-all duration-200 ease-out h-14;
+  }
+  
+  .global-table-td {
+    @apply px-5 py-4 text-xs text-text font-bold border-none;
+  }
+}

@@ -1,0 +1,108 @@
+# Speckit managed files
+/.agents
+/.specify
+/specs
+/.agent
+
+# ─── Python ────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+*.egg-link
+.installed.cfg
+/lib/
+/lib64/
+pip-wheel-metadata/
+share/python-wheels/
+.eggs/
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env.bak
+Xeno/
+# uv
+.uv/
+
+# Alembic
+# (keep versions/ tracked; ignore transient files)
+*.pyc
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff / linters
+.ruff_cache/
+
+# ─── Node / Next.js ────────────────────────────────────────
+node_modules/
+.next/
+out/
+.nuxt/
+.cache/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.parcel-cache/
+
+# ─── Environment / secrets ─────────────────────────────────
+.env
+.env.local
+.env.*.local
+.env.production
+.env.staging
+*.secret
+
+# ─── OS / editor ───────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.tmp
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# ─── Coverage / test artefacts ─────────────────────────────
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+Xeno Engineering Internship Assignment - 2026.pdf
+/sample-clothing-brand
+sample-clothing-brand/customers.csv
+sample-clothing-brand/orders.csv
